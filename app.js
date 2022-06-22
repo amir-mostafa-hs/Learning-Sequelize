@@ -2,19 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const path = require("path");
-
-// conect to data base with sequelize
-const Sequelize = require("sequelize");
-const db = new Sequelize("codegig", "root", "", {
-  host: "localhost",
-  dialect: "mysql",
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-});
+const db = require("./config/database");
 
 // test conect db
 db.authenticate()
